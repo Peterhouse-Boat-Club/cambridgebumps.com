@@ -3,6 +3,8 @@ import { Fragment, forwardRef } from "react";
 import Link from "next/link";
 import { Menu, Transition } from "@headlessui/react";
 
+import { BumpsChartFilter } from "@/components/BumpsChartFilter";
+
 import { longGenders, longNames, longPages } from "../constants";
 
 function classNames(...classes) {
@@ -29,7 +31,7 @@ const MyLink = forwardRef((props, ref) => {
 
 MyLink.displayName = "MyLink";
 
-export function Navigation({ page, event, gender }) {
+export function Navigation({ page, event, gender, chart }) {
   return (
     <nav className="flex" aria-label="Breadcrumb">
       <ol role="list" className="flex items-center">
@@ -229,6 +231,11 @@ export function Navigation({ page, event, gender }) {
                 </Menu.Items>
               </Transition>
             </Menu>
+          </div>
+        </li>
+        <li>
+          <div className="flex">
+            <BumpsChartFilter placeholder="Highlight" chart={chart} />
           </div>
         </li>
       </ol>

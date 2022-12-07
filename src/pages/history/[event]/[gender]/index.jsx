@@ -71,7 +71,7 @@ export default function Results({ events }) {
       <Header />
       <main>
         <div className="flex flex-col items-center">
-          <Navigation page="history" event={event} gender={gender} />
+          <Navigation page="history" event={event} gender={gender} chart={chart} />
           <div className="bumpsChart" ref={ref}>
             <svg width="100%" preserveAspectRatio="xMidYMin" />
           </div>
