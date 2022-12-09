@@ -9,7 +9,7 @@ import { apiURL, genders, longNames } from "../../../constants";
 import eightsImage from "@/images/eights.png";
 import townImage from "@/images/town.png";
 
-const people = [
+const bumpsRaces = [
   {
     id: "men",
     name: "Men",
@@ -53,21 +53,21 @@ export default function Latest({ years = { men: 2022, women: 2022 } }) {
                   role="list"
                   className="space-y-12 sm:grid sm:grid-cols-2 sm:gap-12 sm:space-y-0 lg:gap-x-8"
                 >
-                  {people.map((person) => (
-                    <li key={person.name}>
-                      <Link href={`${event}/${person.id}`}>
+                  {bumpsRaces.map((bumpsRace) => (
+                    <li key={bumpsRace.name}>
+                      <Link href={`${event}/${bumpsRace.id}`}>
                         <a>
                           <div className="flex items-center space-x-4 lg:space-x-6">
                             <img
                               className="h-16 w-16 rounded-full lg:h-20 lg:w-20"
-                              src={person.imageUrl}
+                              src={bumpsRace.imageUrl}
                               alt=""
                             />
                             <div className="space-y-1 text-lg font-medium leading-6">
-                              <h3>{person.name}</h3>
+                              <h3>{bumpsRace.name}</h3>
                               <p className="text-cambridge">
-                                {years[person.id].startYear} -{" "}
-                                {years[person.id].endYear}
+                                {years[bumpsRace.id].startYear} -{" "}
+                                {years[bumpsRace.id].endYear}
                               </p>
                             </div>
                           </div>

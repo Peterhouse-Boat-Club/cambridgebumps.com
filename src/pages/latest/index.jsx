@@ -11,7 +11,7 @@ import townImage from "@/images/town.png";
 
 import { apiURL, events } from "../../constants";
 
-const people = [
+const bumpsRaces = [
   {
     id: "lents",
     name: "Lent Bumps",
@@ -67,20 +67,20 @@ export default function Latest({ years }) {
                   role="list"
                   className="space-y-12 sm:grid sm:grid-cols-2 sm:gap-12 sm:space-y-0 lg:gap-x-8"
                 >
-                  {people.map((person) => (
-                    <li key={person.name}>
-                      <Link href={`latest/${person.id}`}>
+                  {bumpsRaces.map((bumpsRace) => (
+                    <li key={bumpsRace.name}>
+                      <Link href={`latest/${bumpsRace.id}`}>
                         <a>
                           <div className="flex items-center space-x-4 lg:space-x-6">
                             <img
                               className="h-16 w-16 rounded-full lg:h-20 lg:w-20"
-                              src={person.imageUrl}
+                              src={bumpsRace.imageUrl}
                               alt=""
                             />
                             <div className="space-y-1 text-lg font-medium leading-6">
-                              <h3>{person.name}</h3>
+                              <h3>{bumpsRace.name}</h3>
                               <p className="text-cambridge">
-                                {years[person.id]}
+                                {years[bumpsRace.id]}
                               </p>
                             </div>
                           </div>
