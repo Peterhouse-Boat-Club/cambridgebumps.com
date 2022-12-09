@@ -9,7 +9,7 @@ import lentsImage from "@/images/lents.png";
 import maysImage from "@/images/mays.png";
 import townImage from "@/images/town.png";
 
-import { events } from "../../constants";
+import { apiURL, events } from "../../constants";
 
 const people = [
   {
@@ -102,7 +102,7 @@ export async function getStaticProps(context) {
   return Promise.all(
     events.map(async (event) => {
       const res = await fetch(
-        `https://api.cambridgebumps.com/api/latest?event=${event}&gender=men`
+        new URL(`/api/latest?event=${event}&gender=men`, apiURL)
       );
 
       return await res.json();

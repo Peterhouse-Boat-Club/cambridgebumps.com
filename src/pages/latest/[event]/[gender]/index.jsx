@@ -6,7 +6,7 @@ import { Navigation } from "@/components/Navigation";
 
 import BumpsChart from "react-bumps-chart";
 
-import { longGenders, longNames } from "../../../../constants";
+import { apiURL, longGenders, longNames } from "../../../../constants";
 
 export default function Latest({ data }) {
   const router = useRouter();
@@ -62,7 +62,7 @@ export async function getStaticProps(context) {
   const { event, gender } = context.params;
 
   const res = await fetch(
-    `https://api.cambridgebumps.com/api/latest?event=${event}&gender=${gender}`
+    new URL(`/api/latest?event=${event}&gender=${gender}`, apiURL)
   );
 
   const data = await res.json();

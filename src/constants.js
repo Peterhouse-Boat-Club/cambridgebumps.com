@@ -18,3 +18,7 @@ export const longPages = {
 
 export const events = ["lents", "mays", "eights", "torpids", "town"];
 export const genders = ["men", "women"];
+
+// API server URL
+// Used by the server to obtain results
+export const apiURL = new URL("https://api.cambridgebumps.com");

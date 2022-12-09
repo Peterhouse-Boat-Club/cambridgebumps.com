@@ -7,7 +7,7 @@ import { Header } from "@/components/Header";
 import eightsImage from "@/images/eights.png";
 import townImage from "@/images/town.png";
 
-import { genders, longNames } from "../../../constants";
+import { apiURL, genders, longNames } from "../../../constants";
 
 const people = [
   {
@@ -103,7 +103,7 @@ export async function getStaticProps(context) {
   return Promise.all(
     genders.map(async (gender) => {
       const res = await fetch(
-        `https://api.cambridgebumps.com/api/latest?event=${event}&gender=${gender}`
+        new URL(`/api/latest?event=${event}&gender=${gender}`, apiURL)
       );
 
       return await res.json();

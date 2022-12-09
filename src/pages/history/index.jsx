@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 
 import { Header } from "@/components/Header";
 
-import { events } from "../../constants";
+import { apiURL, events } from "../../constants";
 
 import eightsImage from "@/images/eights.png";
 import lentsImage from "@/images/lents.png";
@@ -103,7 +103,7 @@ export async function getStaticProps(context) {
   return Promise.all(
     events.map(async (event) => {
       const res = await fetch(
-        `https://api.cambridgebumps.com/api/history?event=${event}&gender=men`
+        new URL(`/api/history?event=${event}&gender=men`, apiURL)
       );
 
       return await res.json();

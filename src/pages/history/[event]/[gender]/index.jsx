@@ -9,7 +9,7 @@ import "d3-transition";
 import { bumpsChart } from "d3-bumps-chart";
 import { useEffect, useRef } from "react";
 
-import { longGenders, longNames } from "../../../../constants";
+import { apiURL, longGenders, longNames } from "../../../../constants";
 
 const widthOfOneYear = 110;
 
@@ -103,7 +103,7 @@ export async function getStaticProps(context) {
   const { event, gender } = context.params;
 
   const res = await fetch(
-    `https://api.cambridgebumps.com/api/history?event=${event}&gender=${gender}`
+    new URL(`/api/history?event=${event}&gender=${gender}`, apiURL)
   );
 
   const events = await res.json();
